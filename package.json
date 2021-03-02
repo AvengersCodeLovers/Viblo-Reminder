@@ -1,0 +1,25 @@
+{
+  "name": "viblo-group-reports",
+  "version": "1.0.0",
+  "description": "Reminder chatwork for monthly reports group in viblo",
+  "main": "dist/app.js",
+  "scripts": {
+    "build": "tsc --outDir dist/ src/app.ts",
+    "serve": "tsc --outDir dist/ src/app.ts && node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "hieudt-2054",
+  "license": "ISC",
+  "dependencies": {
+    "avengers-chatwork": "^1.0.4",
+    "axios": "^0.21.1",
+    "dotenv": "^8.2.0",
+    "moment": "^2.29.1",
+    "moment-timezone": "^0.5.33",
+    "node-cron": "^2.0.3",
+    "typescript": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.31"
+  }
+}
