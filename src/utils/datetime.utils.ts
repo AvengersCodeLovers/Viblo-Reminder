@@ -11,11 +11,12 @@ class TimeHelper {
 
     getLastMonth(): ILastMonthResponse {
         let lastMonth: moment.Moment = this.moment().subtract(1, 'month').startOf('month');
-        var prevMonthDays: Number = lastMonth.daysInMonth();
-        let fromLastMonth: String = lastMonth.format('YYYY-MM-') + '01';
-        let toLastMonth: String = lastMonth.format('YYYY-MM-') + prevMonthDays;
+        let prevMonthDays: number = lastMonth.daysInMonth();
+        let fromLastMonth: string = lastMonth.format('YYYY-MM-') + '01';
+        let toLastMonth: string = lastMonth.format('YYYY-MM-') + prevMonthDays;
         
         return {
+            lastMonth: lastMonth.format('YYYY-MM-'),
             fromLastMonth: fromLastMonth,
             toLastMonth: toLastMonth,
         }
