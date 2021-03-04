@@ -8,7 +8,9 @@
     "serve": "tsc --outDir dist/ src/app.ts && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
-    "lint-fix": "yarn eslint . --ext .js,.jsx,.ts,.tsx --fix"
+    "lint-fix": "yarn eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "pre": "prettier --check .",
+    "pre-fix": "prettier --write --ignore-unknown ."
   },
   "author": "hieudt-2054",
   "license": "ISC",

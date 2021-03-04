@@ -1,5 +1,5 @@
 export interface ILastMonthResponse {
-    fromLastMonth: string;
-    toLastMonth: string;
-    lastMonth: string;
+  fromLastMonth: string;
+  toLastMonth: string;
+  lastMonth: string;
 }
