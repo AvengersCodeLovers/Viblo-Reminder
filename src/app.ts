@@ -1,13 +1,10 @@
-import cron = require('node-cron');
 import ApiService from './services/api'
 import TimeHelper from './utils/datetime.utils'
 import VibloModule from './modules/viblo.modules'
+import * as dotenv from 'dotenv'
 
-require('dotenv').config({ path: '.env' })
+dotenv.config({ path: '.env' })
 
-let viblo = new VibloModule(new ApiService, new TimeHelper)
+const viblo = new VibloModule(new ApiService, new TimeHelper)
 
-let response = viblo.getOrganizationsStatsFromLastMonth('avengers-group')
-
-cron.schedule('* * * * *', () => {
-})
+viblo.getOrganizationsStatsFromLastMonth('avengers-group')

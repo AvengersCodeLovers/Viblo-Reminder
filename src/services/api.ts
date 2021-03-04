@@ -13,9 +13,9 @@ class ApiService {
     }
 
     getOrganizationsStats (groupSlug: string, fromLastMonth: string, toLastMonth: string): Promise<IStatsResponse> {
-        return new Promise (async (resolve, reject) => {
+        return new Promise ((resolve, reject) => {
             try {
-                let response = await this.viblo.get(`organizations/${groupSlug}/stats`, {
+                const response = this.viblo.get(`organizations/${groupSlug}/stats`, {
                     params: {
                         from: fromLastMonth,
                         to: toLastMonth

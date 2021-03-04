@@ -6,13 +6,13 @@ class VibloModule {
     public apiService: ApiService;
     public timeHelper: TimeHelper;
 
-    constructor(private api: ApiService, private time: TimeHelper) {
+    constructor(public api: ApiService, public time: TimeHelper) {
         this.apiService = api
         this.timeHelper = time
     }
 
     public getOrganizationsStatsFromLastMonth (groupSlug: string): IStatsResponse | void {
-        let time = this.timeHelper.getLastMonth()
+        const time = this.timeHelper.getLastMonth()
 
         this.apiService.getOrganizationsStats(
             groupSlug,
