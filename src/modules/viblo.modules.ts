@@ -11,14 +11,18 @@ class VibloModule {
         this.timeHelper = time
     }
 
-    getOrganizationsStatsFromLastMonth (groupSlug: string): IStatsResponse {
+    public getOrganizationsStatsFromLastMonth (groupSlug: string): IStatsResponse | void {
         let time = this.timeHelper.getLastMonth()
 
-        return this.apiService.getOrganizationsStats(
+        this.apiService.getOrganizationsStats(
             groupSlug,
             time.fromLastMonth,
             time.toLastMonth
-        )
+        ).then((res) => {
+            return res.data
+        }).catch((err) => {
+            throw new Error(err)
+        })
     }
 }
 

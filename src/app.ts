@@ -8,7 +8,6 @@ require('dotenv').config({ path: '.env' })
 let viblo = new VibloModule(new ApiService, new TimeHelper)
 
 let response = viblo.getOrganizationsStatsFromLastMonth('avengers-group')
-console.log(response)
 
 cron.schedule('* * * * *', () => {
 })

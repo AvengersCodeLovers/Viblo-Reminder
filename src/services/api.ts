@@ -2,7 +2,7 @@ import axios from 'axios'
 import { IStatsResponse } from '../interfaces/response/IStatsResponse'
 class ApiService {
 
-    viblo;
+    private viblo;
     
     constructor() {
         this.viblo = axios.create({
@@ -12,21 +12,21 @@ class ApiService {
         })
     }
 
-    async getOrganizationsStats (groupSlug: string, fromLastMonth: string, toLastMonth: string): Promise<IStatsResponse> {
-        try {
-            await this.viblo.get(`organizations/${groupSlug}/stats`, {
-                params: {
-                    from: fromLastMonth,
-                    to: toLastMonth
-                }
-            }).then((res) => {
-                return res.data
-            })
+    getOrganizationsStats (groupSlug: string, fromLastMonth: string, toLastMonth: string): Promise<IStatsResponse> {
+        return new Promise (async (resolve, reject) => {
+            try {
+                let response = await this.viblo.get(`organizations/${groupSlug}/stats`, {
+                    params: {
+                        from: fromLastMonth,
+                        to: toLastMonth
+                    }
+                })
 
-            // return response.data
-        } catch (error) {
-            throw new Error(error)
-        }
+                resolve(response)
+            } catch (error) {
+                reject(error)
+            }
+        })
     }
 }
 
