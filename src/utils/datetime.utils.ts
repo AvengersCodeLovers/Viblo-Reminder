@@ -23,6 +23,10 @@ class TimeHelper {
       toLastMonth: toLastMonth,
     };
   }
+
+  getMoment(): moment.Moment {
+    return this.moment();
+  }
 }
 
 export default TimeHelper;
