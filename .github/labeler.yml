@@ -1,0 +1,8 @@
+Package: package.json
+Modules: src/modules/**/*
+Utils: src/utils/**/*
+Unit Test: tests/**/*
+Services: src/services/**/*
+Github Action: .github/**/*
+Docker: Dockerfile
+Documentation: README.md
