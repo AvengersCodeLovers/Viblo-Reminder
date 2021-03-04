@@ -3,6 +3,7 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
+[![Prettier Style][prettier-style]][prettier-style]
 [![Github Build CI][github-build]][github-build]
 
 <!-- ABOUT THE PROJECT -->
@@ -72,4 +73,5 @@ Distributed under the MIT License. See `LICENSE` for more information.
 [issues-url]: https://github.com/AvengersCodeLovers/Viblo-Reminder/issues
 [license-shield]: https://img.shields.io/github/license/AvengersCodeLovers/Viblo-Reminder.svg?style=for-the-badge
 [license-url]: https://github.com/AvengersCodeLovers/Viblo-Reminder/blob/main/LICENSE
-[github-build]: https://img.shields.io/github/workflow/status/AvengersCodeLovers/Viblo-Reminder/lint-prettier.yml/main?logo=Viblo-Reminder&style=for-the-badge
+[github-build]: https://github.com/AvengersCodeLovers/Viblo-Reminder/actions/workflows/lint-prettier.yml/badge.svg
+[prettier-style]: https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=for-the-badge
