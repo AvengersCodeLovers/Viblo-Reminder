@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  application:
+    container_name: viblo_reminder
+    restart: always
+    build:
+      context: ./
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./:/usr/src/app
