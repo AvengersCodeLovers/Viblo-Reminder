@@ -14,14 +14,17 @@ class VibloModule {
   public getOrganizationsStatsFromLastMonth(
     groupSlug: string
   ): IStatsResponse | void {
+    console.log("Call getOrganizationsStatsFromLastMonth");
     const time = this.timeHelper.getLastMonth();
 
     this.apiService
       .getOrganizationsStats(groupSlug, time.fromLastMonth, time.toLastMonth)
       .then((res) => {
+        console.log(`getOrganizationsStatsFromLastMonth: ${res.data}`);
         return res.data;
       })
       .catch((err) => {
+        console.log(`getOrganizationsStatsFromLastMonth error`);
         throw new Error(err);
       });
   }
