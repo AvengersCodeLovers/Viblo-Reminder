@@ -1,4 +1,4 @@
-import { IUserResponse } from "./IUserResponse";
+import { IUserResponse } from './IUserResponse';
 
 export interface IStatsResponse {
   data: {

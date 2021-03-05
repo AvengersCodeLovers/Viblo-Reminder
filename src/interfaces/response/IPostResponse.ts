@@ -1,4 +1,4 @@
-import { IProfileResponse } from "./IProfileResponse";
+import { IProfileResponse } from './IProfileResponse';
 
 export interface IPostResponse {
   id: number;

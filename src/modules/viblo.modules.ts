@@ -1,7 +1,7 @@
-import ApiService from "../services/api";
-import TimeHelper from "../utils/datetime.utils";
-import File from "../utils/file";
-import { IUserResponse } from "../interfaces/response/IUserResponse";
+import ApiService from '../services/api';
+import TimeHelper from '../utils/datetime.utils';
+import File from '../utils/file';
+import { IUserResponse } from '../interfaces/response/IUserResponse';
 
 class VibloModule {
   public apiService: ApiService;
