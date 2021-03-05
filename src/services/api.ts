@@ -1,6 +1,6 @@
-import AxiosInstance from "../utils/axios";
-import { IStatsResponse } from "../interfaces/response/IStatsResponse";
-import { IUserPostsResponse } from "../interfaces/response/IUserPostsResponse";
+import AxiosInstance from '../utils/axios';
+import { IStatsResponse } from '../interfaces/response/IStatsResponse';
+import { IUserPostsResponse } from '../interfaces/response/IUserPostsResponse';
 class ApiService {
   private viblo;
 

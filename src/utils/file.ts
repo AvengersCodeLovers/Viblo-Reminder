@@ -1,4 +1,4 @@
-import * as fs from "fs";
+import * as fs from 'fs';
 
 class File {
   private fs;
@@ -8,11 +8,11 @@ class File {
   }
 
   writePosts(arrData: any): void {
-    this.fs.writeFileSync("./posts", arrData.join(","), "utf-8");
+    this.fs.writeFileSync('./posts', arrData.join(','), 'utf-8');
   }
 
   readPosts(): any {
-    this.fs.readFile("./posts", "utf8", function read(err, data) {
+    this.fs.readFile('./posts', 'utf8', function read(err, data) {
       if (err) {
         throw err;
       }
