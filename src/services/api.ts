@@ -1,14 +1,11 @@
-import axios from "axios";
+import AxiosInstance from "../utils/axios";
 import { IStatsResponse } from "../interfaces/response/IStatsResponse";
+import { IUserPostsResponse } from "../interfaces/response/IUserPostsResponse";
 class ApiService {
   private viblo;
 
   constructor() {
-    this.viblo = axios.create({
-      baseURL: "https://api.viblo.asia/",
-      timeout: 10000,
-      headers: { Authorization: `Bearer ${process.env.VIBLO_TOKEN}` },
-    });
+    this.viblo = new AxiosInstance().create();
   }
 
   getOrganizationsStats(
@@ -24,6 +21,18 @@ class ApiService {
             to: toLastMonth,
           },
         });
+
+        resolve(response);
+      } catch (error) {
+        reject(error);
+      }
+    });
+  }
+
+  getPostsByUser(username: string): Promise<IUserPostsResponse> {
+    return new Promise((resolve, reject) => {
+      try {
+        const response = this.viblo.get(`users/${username}/posts?limit=20`);
 
         resolve(response);
       } catch (error) {
