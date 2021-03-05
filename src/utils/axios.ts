@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { config } from '../config/app.config'
 class AxiosInstance {
   public axiosInstance;
 
@@ -7,7 +7,7 @@ class AxiosInstance {
     this.axiosInstance = axios.create({
       baseURL: "https://api.viblo.asia/",
       timeout: 10000,
-      headers: { Authorization: `Bearer ${process.env.VIBLO_TOKEN}` },
+      headers: { Authorization: `Bearer ${config.VIBLO_TOKEN}` },
     });
 
     this.interceptorsSetup();
