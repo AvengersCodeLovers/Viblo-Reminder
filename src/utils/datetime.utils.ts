@@ -18,7 +18,7 @@ class TimeHelper {
     const toLastMonth: string = lastMonth.format("YYYY-MM-") + prevMonthDays;
 
     return {
-      lastMonth: lastMonth.format("YYYY-MM-"),
+      lastMonth: lastMonth.format("YYYY-MM"),
       fromLastMonth: fromLastMonth,
       toLastMonth: toLastMonth,
     };
