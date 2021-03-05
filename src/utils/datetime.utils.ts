@@ -27,6 +27,10 @@ class TimeHelper {
   getMoment(): moment.Moment {
     return this.moment();
   }
+
+  formatYearMonth(date: string): string {
+    return this.moment(date).format("YYYY-MM");
+  }
 }
 
 export default TimeHelper;

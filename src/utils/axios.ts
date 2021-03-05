@@ -33,7 +33,6 @@ class AxiosInstance {
       function (response) {
         console.log("Response: ", {
           status: response.status,
-          data: response.data,
         });
         return response;
       },
