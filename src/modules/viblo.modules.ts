@@ -1,15 +1,21 @@
 import ApiService from "../services/api";
 import TimeHelper from "../utils/datetime.utils";
-import * as fs from "fs";
+import File from "../utils/file";
 import { IUserResponse } from "../interfaces/response/IUserResponse";
 
 class VibloModule {
   public apiService: ApiService;
   public timeHelper: TimeHelper;
+  public storage: File;
 
-  constructor(public api: ApiService, public time: TimeHelper) {
+  constructor(
+    public api: ApiService,
+    public time: TimeHelper,
+    public file: File
+  ) {
     this.apiService = api;
     this.timeHelper = time;
+    this.storage = file;
   }
 
   public getOrganizationsStatsFromLastMonth(groupSlug: string): any {
@@ -46,6 +52,7 @@ class VibloModule {
           arrResult.push(data[0].url);
         });
     }
+    this.storage.writePosts(arrResult);
   }
 }
 
