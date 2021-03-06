@@ -11,13 +11,15 @@ class File {
     this.fs.writeFileSync('./posts', arrData.join(','), 'utf-8');
   }
 
-  readPosts(): any {
-    this.fs.readFile('./posts', 'utf8', function read(err, data) {
-      if (err) {
-        throw err;
-      }
+  async readPosts(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      this.fs.readFile('./posts', 'utf8', function read(err, data) {
+        if (err) {
+          reject(err);
+        }
 
-      return data;
+        resolve(data);
+      });
     });
   }
 }

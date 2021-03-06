@@ -1,6 +1,6 @@
 import * as moment from 'moment-timezone';
 import { ILastMonthResponse } from '../interfaces/response/ILastMonthResponse';
-
+import { IMonthYearResponse } from '../interfaces/response/IMonthYearResponse';
 class TimeHelper {
   moment;
 
@@ -21,6 +21,16 @@ class TimeHelper {
       lastMonth: lastMonth.format('YYYY-MM'),
       fromLastMonth: fromLastMonth,
       toLastMonth: toLastMonth,
+    };
+  }
+
+  getMonthYear(): IMonthYearResponse {
+    const monthYear = this.moment().subtract(1, 'month').format('MM/YYYY');
+    const nowYear = this.moment().format('MM/YYYY');
+
+    return {
+      monthYear,
+      nowYear,
     };
   }
 
