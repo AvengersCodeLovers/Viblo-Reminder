@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { config } from '../config/app.config';
+import Rollbar from './rollbar';
+
 class AxiosInstance {
   public axiosInstance;
 
@@ -14,6 +16,7 @@ class AxiosInstance {
   }
 
   interceptorsSetup(): void {
+    const _rollbar = new Rollbar();
     this.axiosInstance.interceptors.request.use(
       function (config) {
         console.log('Request: ', {
@@ -21,10 +24,16 @@ class AxiosInstance {
           url: config.url,
           params: config.params,
         });
+        _rollbar.log({
+          method: config.method,
+          url: config.url,
+          params: config.params,
+        })
         return config;
       },
       function (error) {
         console.log(error);
+        _rollbar.log(error);
         return Promise.reject(error);
       }
     );
@@ -36,10 +45,16 @@ class AxiosInstance {
           url: response.config.url,
           method: response.config.method,
         });
+        _rollbar.log({
+          status: response.status,
+          url: response.config.url,
+          method: response.config.method,
+        });
         return response;
       },
       function (error) {
         console.log(error);
+        _rollbar.log(error);
         return Promise.reject(error);
       }
     );

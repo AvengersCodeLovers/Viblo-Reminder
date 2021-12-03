@@ -25,6 +25,7 @@ export interface IPostResponse {
   is_draft: boolean;
   is_public: boolean;
   thumbnail_url?: string | null;
+  promoted: boolean;
   user: {
     data: IProfileResponse;
   };

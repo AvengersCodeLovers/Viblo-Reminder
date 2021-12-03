@@ -29,10 +29,11 @@ class ApiService {
     });
   }
 
-  getPostsByUser(username: string): Promise<IUserPostsResponse> {
+  getPostsByUser(username: string, date: any = null): Promise<IUserPostsResponse> {
     return new Promise((resolve, reject) => {
       try {
-        const response = this.viblo.get(`users/${username}/posts?limit=20`);
+        const dateParam = date ? `&from=${date.from}&to=${date.to}` : '';
+        const response = this.viblo.get(`users/${username}/posts?limit=20${dateParam}`);
 
         resolve(response);
       } catch (error) {

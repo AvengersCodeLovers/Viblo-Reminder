@@ -5,7 +5,7 @@
   "main": "dist/app.js",
   "scripts": {
     "build": "tsc --outDir dist/ src/app.ts",
-    "serve": "tsc --outDir dist/ src/app.ts && node dist/app.js",
+    "serve": "nodemon",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "yarn eslint . --ext .js,.jsx,.ts,.tsx",
     "lint-fix": "yarn eslint . --ext .js,.jsx,.ts,.tsx --fix",
@@ -31,6 +31,8 @@
     "@typescript-eslint/parser": "^4.16.1",
     "eslint": "^7.21.0",
     "eslint-config-prettier": "^8.1.0",
-    "prettier": "^2.2.1"
+    "prettier": "^2.2.1",
+    "rollbar": "^2.24.0",
+    "ts-node": "^10.3.0"
   }
 }

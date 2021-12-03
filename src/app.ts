@@ -1,3 +1,5 @@
+import { IUserPostsResponse } from './interfaces/response/IUserPostsResponse';
+import { IStatsResponse } from './interfaces/response/IStatsResponse';
 import * as dotenv from 'dotenv';
 dotenv.config({ path: '.env' });
 import { config } from './config/app.config';
@@ -8,6 +10,7 @@ import VibloModule from './modules/viblo.modules';
 import * as cron from 'node-cron';
 import './utils/logger';
 import ChatWork from './utils/chatwork';
+import { calculate } from './utils/calculator';
 
 const viblo = new VibloModule(
   new ApiService(),
@@ -16,9 +19,21 @@ const viblo = new VibloModule(
   new ChatWork()
 );
 
+console.clear();
 console.log('APP RUNNING...');
-console.log('APP CRONJOB FETCH POST: ', config.CRONJOB_FETCH_POST);
-console.log('APP CRONJOB NOTIFY: ', config.CRONJOB_NOTIFY);
+console.log('APP ENV: ', config);
+
+const time = new TimeHelper();
+const api = new ApiService();
+const lastMonth = time.getLastMonth();
+api.getPostsByUser('hieudt-2054', {
+  from: '2021-08-01',
+  to: '2021-08-31'
+})
+.then((response: IUserPostsResponse) => {
+  calculate(response.data.data[0]);
+})
+
 
 cron.schedule(config.CRONJOB_FETCH_POST, () => {
   console.log('=======JOB FETCH POST RUNNING========');
